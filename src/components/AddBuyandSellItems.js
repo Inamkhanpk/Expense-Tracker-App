@@ -20,7 +20,8 @@ export const AddBuyandSellItems = () => {
 
     if(product === ""){
       alert("Please enter product")
-    }
+         return  false
+     }
 
     const newitems = {
       id: uuidv4(),
@@ -46,7 +47,7 @@ export const AddBuyandSellItems = () => {
           className="form-control" 
           value={product} 
           onChange={(e) => setProduct(e.target.value)} 
-          placeholder="Enter Product..." />
+          placeholder="Enter Product..." required/>
         </div>
 
         <div className="form-group">
@@ -57,7 +58,7 @@ export const AddBuyandSellItems = () => {
           className="form-control" 
           value={amount} 
           onChange={(e) => setAmount(e.target.value)} 
-          placeholder="Enter amount..." />
+          placeholder="Enter amount..." required />
         </div>
 
         <button 
