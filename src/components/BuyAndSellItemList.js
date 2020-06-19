@@ -24,7 +24,7 @@ export const BuyAndSellItemList = () => {
                   {items.product} 
                   </div>
 
-                  <span className={items.amount< 0 ? 'border-danger  border text-center' :'border-warning  border text-center'}>
+                  <span className={items.amount< 0 ? 'border-danger border-right  text-center' :'border-warning border-right text-center'}>
                   {items.amount} PKR
                   </span>
 
