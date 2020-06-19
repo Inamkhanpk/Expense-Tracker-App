@@ -41,4 +41,4 @@ jobs:
      
      
     - name: Deploying on surge 
-      run: surge . http://expnse-tracker-app-inam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
+      run: surge ./build http://expnse-tracker-app-inam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
