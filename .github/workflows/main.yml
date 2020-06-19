@@ -40,5 +40,5 @@ jobs:
       run: npm install -g surge
      
      
-   - name: Deploying on surge 
-     run: surge ./build/index.html http://expnse-tracker-app-inam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
+    - name: Deploying on surge 
+      run: surge ./build/index.html http://expnse-tracker-app-inam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
