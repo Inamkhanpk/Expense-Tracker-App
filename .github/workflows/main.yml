@@ -28,16 +28,16 @@ jobs:
         version:  12
 
     # Runs a set of commands using the runners shell
-    -name: Automated releases for npm packages.
-     uses: mikeal/merge-release@v4.0.7
-     with:
-        cmd:  install
+    - name: Automated releases for npm packages.
+      uses: mikeal/merge-release@v4.0.7
+      with:
+       cd:  install
         
-   - name : Creating build
-     run : npm build
+    - name : Creating build
+      run : npm build
      
-   - name: Installing surge
-     run: npm install -g surge
+    - name: Installing surge
+      run: npm install -g surge
      
      
    - name: Deploying on surge 
