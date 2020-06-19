@@ -10,7 +10,6 @@ export const Balance = () => {
     let income = 0;
     
     for (var i = 0; i < buyandsellitems.length; i++) {
-      console.log(buyandsellitems[i])
         if (buyandsellitems[i].amount > 0)
             income = income + buyandsellitems[i].amount
     }
@@ -24,7 +23,7 @@ const getExpense = () => {
   let expense = 0;
   for (var i = 0; i < buyandsellitems.length; i++) {
       if (buyandsellitems[i].amount < 0)
-          expense += buyandsellitems[i].amount
+          expense = expense + buyandsellitems[i].amount
   }
   return expense;
 }
