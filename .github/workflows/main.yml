@@ -29,11 +29,11 @@ jobs:
 
     # Runs a set of commands using the runners shell
     -name: Automated releases for npm packages.
-      uses: mikeal/merge-release@v4.0.7
-      with:
+     uses: mikeal/merge-release@v4.0.7
+     with:
         cmd:  install
         
-     name : Creating build
+   - name : Creating build
      run : npm build
      
    - name: Installing surge
