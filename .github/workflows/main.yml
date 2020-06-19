@@ -31,10 +31,10 @@ jobs:
     - name: Automated releases for npm packages.
       uses: mikeal/merge-release@v4.0.7
       with:
-       cd:  install
+       cmd:  install
         
     - name : Creating build
-      run : npm build
+      run : npm run build
      
     - name: Installing surge
       run: npm install -g surge
