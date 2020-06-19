@@ -31,14 +31,14 @@ jobs:
     - name: Automated releases for npm packages.
       uses: mikeal/merge-release@v4.0.7
       with:
-       cmd:  install
+       cmd: install
         
-    - name : Creating build
-      run : npm run build
+    - name: Creating build
+      run : npm build
      
     - name: Installing surge
-      run: npm install -g surge
+      run : npm install -g surge
      
      
     - name: Deploying on surge 
-      run: surge ./build http://expnse-tracker-app-inam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
+      run : surge ./build http://expnse-tracker-app-inam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
