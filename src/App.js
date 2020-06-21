@@ -7,19 +7,19 @@ import { GlobalProvider } from './contextAPI/GlobalState';
 import { BuyAndSellItemList } from './components/BuyAndSellItemList';
 import { AddBuyandSellItems } from './components/AddBuyandSellItems';
 import 'bootstrap/dist/css/bootstrap.css';
+import './App.css'
 function App() {
   return (
     <GlobalProvider>
       <Header/>
-    <div className="container-fluid bg-info p-5">
-     
+    <div className="container-fluid app   p-5">
      <Balance/>
      <IncomeAndExpense/>
      <BuyAndSellItemList/>
      <AddBuyandSellItems/>
-     
-    </div>
+     </div>
     <Footer/>
+    
     </GlobalProvider>
   );
 }

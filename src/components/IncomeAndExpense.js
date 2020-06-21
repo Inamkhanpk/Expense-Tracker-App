@@ -7,7 +7,7 @@ export const IncomeAndExpense = () => {
 
   
 
-  const getIncome = () => {
+  const Income = () => {
     let income = 0;
     for (var i = 0; i < buyandsellitems.length; i++) {
         if (buyandsellitems[i].amount > 0)
@@ -19,27 +19,27 @@ export const IncomeAndExpense = () => {
 }
 
 
-const getExpense = () => {
+const Expense = () => {
   let expense = 0;
   for (var i = 0; i < buyandsellitems.length; i++) {
       if (buyandsellitems[i].amount < 0)
-          expense += buyandsellitems[i].amount
+          expense = expense + buyandsellitems[i].amount
   }
   return expense;
 }
 
 
   return (
-    <div className="d-flex  justify-content-between text-center mt-5">
+    <div className="d-flex  justify-content-between text-center mt-5  ">
 
-        <div className="card flex-grow-1 m-1 ">
+        <div className="card flex-grow-1 m-1 balance ">
           <h4 className="card-title">Income</h4>
-          <p className="card-text">{getIncome()} PKR</p>
+          <p className="card-text">{Income()} PKR</p>
         </div>
 
-        <div className="card flex-grow-1 m-1">
+        <div className="card flex-grow-1 m-1 balance">
           <h4 className="card-title">Expense</h4>
-          <p className="card-text">{getExpense()} PKR</p>
+          <p className="card-text">{Expense()} PKR</p>
         </div>
 
       </div>

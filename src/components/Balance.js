@@ -6,20 +6,18 @@ export const Balance = () => {
 
  
 
-  const getIncome = () => {
+  const Income = () => {
     let income = 0;
-    
     for (var i = 0; i < buyandsellitems.length; i++) {
         if (buyandsellitems[i].amount > 0)
             income = income + buyandsellitems[i].amount
-    }
-    
+        }
     return income;
     
 }
 
 
-const getExpense = () => {
+const Expense = () => {
   let expense = 0;
   for (var i = 0; i < buyandsellitems.length; i++) {
       if (buyandsellitems[i].amount < 0)
@@ -32,10 +30,10 @@ const getExpense = () => {
 
 
   return (
-    <div className="card text-center text-white bg-secondary">
+    <div className="card text-center  balance ">
      
-      <h4 className="card-title" >Your Balance</h4>
-      <h1 className="card-text ">{getIncome() + getExpense()} PKR </h1>
+      <h4 className="card-title " >Your Balance</h4>
+      <h1 className="card-text ">{Income() + Expense()} PKR </h1>
     
       
     </div>

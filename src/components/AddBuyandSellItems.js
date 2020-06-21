@@ -3,72 +3,126 @@ import { GlobalContext } from '../contextAPI/GlobalState';
 import { v4 as uuidv4 } from 'uuid';
 
 export const AddBuyandSellItems = () => {
+  
+  const [userRequest, setUserRequest] = useState({
+    amount: "",
+    product: "",
+  });
 
+  
+  const [errors,setErrors] = useState({
+    product: null,
+    amount: null
+  })
 
-  const [product, setProduct] = useState('');
-  const [amount, setAmount] = useState(0);
 
   const { addBuyandSellItem } = useContext(GlobalContext);
+
+
+
+
+  const handleValidation =()=>{
+    let valid =true 
+    let errors = {}
+    if (Number(amount) === 0) {
+      
+      errors.amount ="Please enter + or - value"
+      valid= false;
+  }
+
+  if(product === ""){
+    
+    errors.product="Please Enter Relevant Description"
+    valid= false;
+  }
+  setErrors({...errors})
+  return valid
+  };
+   
+    
+    function handleChange(event) {
+      
+       
+       setUserRequest({ ...userRequest, [event.target.name] : event.target.value });;
+    }
+
 
   const onSubmit = e => {
     e.preventDefault();
     
-    if (Number(amount) === 0) {
-        alert("Please enter correct value");
-        return false;
-    }
+  
+    if(handleValidation()){
+      
+      const newitems = {
+        id: uuidv4(),
+        product:userRequest.product,
+        amount:Number(userRequest.amount)
+      }
+  
+      addBuyandSellItem(newitems);
+      
+   
+    setUserRequest({
+      
+      product:'',
+      amount:''
+   })
+   }
 
-    if(product === ""){
-      alert("Please enter product")
-         return  false
-     }
-
-    const newitems = {
-      id: uuidv4(),
-      product,
-      amount:Number(amount)
-    }
-
-    addBuyandSellItem(newitems);
-
-  setProduct("")
-  setAmount("")
+    
   }
 
+
+ 
+  const { product, amount} = userRequest;
+  
   return (
-<div className=" card text-center bg-secondary text-white mt-5 p-1">
+    <div className=" card text-center balance  mt-5 p-1 ">
       <h3 className="card-title">Add Transactions</h3>
+      
       <form >
 
         <div className="form-group">
           <label htmlFor="product">Text</label>
-          <input 
+          <input
+          name="product" 
           type="text" 
           className="form-control" 
-          value={product} 
-          onChange={(e) => setProduct(e.target.value)} 
-          placeholder="Enter Product..." required/>
+          value={product }
+          onChange={handleChange} 
+          placeholder="Enter Product..." required
+          
+          />
+           
         </div>
+        <span style={{color: "red" }}>{errors.product ? errors.product : null}</span>
 
         <div className="form-group">
           <label htmlFor="amount">Amount <br />
           Income is (+ve),Expense is (-ve)</label >
           <input 
+          name="amount"
           type="number" 
           className="form-control" 
-          value={amount} 
-          onChange={(e) => setAmount(e.target.value)} 
+          value={amount }
+          onChange={handleChange} 
           placeholder="Enter amount..." required />
+          
         </div>
-
+        <span style={{color: "red"}}>{errors.amount ? errors.amount : null}</span>
+        <br/>
+        
+    
         <button 
         type="button" 
-        className="btn btn-primary" onClick={onSubmit}>
-            Add 
-            <i class="fa fa-plus-circle m-1" aria-hidden="true"></i>
+        className="btn " onClick={onSubmit}>
+          <i className="fa fa-plus-circle m-1" aria-hidden="true"></i>
         </button>
+        
 
       </form>
+
+      
     </div>
   )
 }
