@@ -33,7 +33,7 @@ const Expense = () => {
     <div className="card text-center  balance ">
      
       <h4 className="card-title " >Your Balance</h4>
-      <h1 className="card-text ">{Income() + Expense()} PKR </h1>
+      <h1 className="card-text text-primary ">{Income() + Expense()} PKR </h1>
     
       
     </div>

@@ -34,12 +34,12 @@ const Expense = () => {
 
         <div className="card flex-grow-1 m-1 balance ">
           <h4 className="card-title">Income</h4>
-          <p className="card-text">{Income()} PKR</p>
+          <p className="card-text text-info">{Income()} PKR</p>
         </div>
 
         <div className="card flex-grow-1 m-1 balance">
           <h4 className="card-title">Expense</h4>
-          <p className="card-text">{Expense()} PKR</p>
+          <p className="card-text text-danger">{Expense()} PKR</p>
         </div>
 
       </div>
