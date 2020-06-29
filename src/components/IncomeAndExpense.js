@@ -32,12 +32,12 @@ const Expense = () => {
   return (
     <div className="d-flex  justify-content-between text-center mt-5  ">
 
-        <div className="card flex-grow-1 m-1 balance ">
+        <div className="card flex-grow-1  balance1 ">
           <h4 className="card-title">Income</h4>
           <p className="card-text text-info">{Income()} PKR</p>
         </div>
 
-        <div className="card flex-grow-1 m-1 balance">
+        <div className="card flex-grow-1  balance1">
           <h4 className="card-title">Expense</h4>
           <p className="card-text text-danger">{Expense()} PKR</p>
         </div>

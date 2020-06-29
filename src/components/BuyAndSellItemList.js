@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 
 import { GlobalContext } from '../contextAPI/GlobalState';
-
+import DeleteIcon from '@material-ui/icons/Delete';
 export const BuyAndSellItemList = () => {
   
   const { deleteBuyandSellItem, buyandsellitems} = useContext(GlobalContext);
@@ -10,7 +10,7 @@ export const BuyAndSellItemList = () => {
 
 
   return (
-    <div className="rounded text-center balance  mt-5 p-2 m-auto">
+    <div className="rounded text-center balance  mt-5 p-2 ">
       <h3 className="text-dark"> History</h3>
 
 
@@ -29,16 +29,11 @@ export const BuyAndSellItemList = () => {
                   </span>
 
                 
-                  <div>
-                  
-                  <button 
-                   type="button" 
-                   onClick={() => deleteBuyandSellItem(items.id)} 
-                   className="btn">
-                   <i className="fa fa-trash m-1" aria-hidden="true"></i>
-                  </button> 
-                  
-                  </div>
+
+                 <span style={{color: "red"}}  
+                 onClick={() => deleteBuyandSellItem(items.id)}>
+                 < DeleteIcon />
+                 </span>
 
                   </div>
             </li>

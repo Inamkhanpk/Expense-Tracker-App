@@ -1,7 +1,8 @@
 import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../contextAPI/GlobalState';
 import { v4 as uuidv4 } from 'uuid';
-
+import TextField from '@material-ui/core/TextField';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 export const AddBuyandSellItems = () => {
   
   const [userRequest, setUserRequest] = useState({
@@ -77,48 +78,50 @@ export const AddBuyandSellItems = () => {
   const { product, amount} = userRequest;
   
   return (
-    <div className=" card text-center balance  mt-5 p-1 ">
+    <div className=" card text-center   mt-5 p-1 ">
       <h3 className="card-title">Add Transactions</h3>
       
       <form >
 
-        <div className="form-group">
-          <label htmlFor="product">Text</label>
-          <input
+        <div className="form-group px-5">
+          
+        <TextField
+          label="Enter Description"
           name="product" 
           type="text" 
-          className="form-control" 
+          error={errors.product ? true: false}
+          defaultValue="Enter Description"
+          helperText={errors.product}
+          required={true}
           value={product }
           onChange={handleChange} 
-          placeholder="Enter Product..." required
-          
-          />
-           
+          fullWidth={true}
+          className="form-control " 
+        />
         </div>
-        <span style={{color: "red" }}>{errors.product ? errors.product : null}</span>
+        
 
-        <div className="form-group">
-          <label htmlFor="amount">Amount <br />
-          Income is (+ve),Expense is (-ve)</label >
-          <input 
-          name="amount"
-          type="number" 
-          className="form-control" 
+        <div className="form-group px-5">
+        <TextField
+        label="Enter Number"
+           name="amount" 
+           type="number"
+          error={errors.amount ? true: false}
+          defaultValue="Enter Deescription"
+          helperText={errors.product}
+          required={true}
           value={amount }
           onChange={handleChange} 
-          placeholder="Enter amount..." required />
+          fullWidth={true}
+          className="form-control " 
+        />
           
         </div>
-        <span style={{color: "red"}}>{errors.amount ? errors.amount : null}</span>
+      
         <br/>
-        
-    
-        <button 
-        type="button" 
-        className="btn " onClick={onSubmit}>
-          <i className="fa fa-plus-circle m-1" aria-hidden="true"></i>
-        </button>
-        
+      
+
+        <span style={{color: "red"}}  onClick={onSubmit}>< AddCircleIcon /></span>
 
       </form>
 

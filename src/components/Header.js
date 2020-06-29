@@ -5,7 +5,7 @@ export const Header = () => {
 
 
     <nav className="navbar navbar-expand-lg  bg-light">
-      <div className="container-fluid justify-content-center">
+      <div className="m-auto">
        <div className="navbar-header ">
         <h1 className="navbar-brand " >Expense Tracker App</h1>
        </div>
