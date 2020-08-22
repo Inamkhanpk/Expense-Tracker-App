@@ -3,6 +3,7 @@ import { GlobalContext } from '../contextAPI/GlobalState';
 import { v4 as uuidv4 } from 'uuid';
 import TextField from '@material-ui/core/TextField';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+
 export const AddBuyandSellItems = () => {
   
   const [userRequest, setUserRequest] = useState({
@@ -25,7 +26,7 @@ export const AddBuyandSellItems = () => {
   const handleValidation =()=>{
     let valid =true 
     let errors = {}
-    if (Number(amount) === 0) {
+  if (Number(amount) === 0) {
       
       errors.amount ="Please enter + or - value"
       valid= false;
@@ -33,8 +34,8 @@ export const AddBuyandSellItems = () => {
 
   if(product === ""){
     
-    errors.product="Please Enter Relevant Description"
-    valid= false;
+      errors.product="Please Enter Relevant Description"
+      valid= false;
   }
   setErrors({...errors})
   return valid
@@ -78,19 +79,18 @@ export const AddBuyandSellItems = () => {
   const { product, amount} = userRequest;
   
   return (
-    <div className=" card text-center   mt-5 p-1 ">
-      <h3 className="card-title">Add Transactions</h3>
+    <div className="d-flex  justify-content-center">
+    <div className=" card  text-center  p-1 m-5  w-50">
+      <h3 className="card-title text-center">Add Transactions</h3>
       
       <form >
 
-        <div className="form-group px-5">
-          
-        <TextField
-          label="Enter Description"
+        <div className="form-group my-5">
+          <TextField
+          label="Enter Detail"
           name="product" 
           type="text" 
           error={errors.product ? true: false}
-          defaultValue="Enter Description"
           helperText={errors.product}
           required={true}
           value={product }
@@ -101,24 +101,22 @@ export const AddBuyandSellItems = () => {
         </div>
         
 
-        <div className="form-group px-5">
+        <div className="form-group my-5">
         <TextField
-        label="Enter Number"
-           name="amount" 
-           type="number"
+          label="Enter Number"
+          name="amount" 
+          type="number"
           error={errors.amount ? true: false}
-          defaultValue="Enter Deescription"
-          helperText={errors.product}
+          helperText={errors.amount}
           required={true}
           value={amount }
           onChange={handleChange} 
           fullWidth={true}
-          className="form-control " 
+          className="form-control" 
         />
-          
         </div>
       
-        <br/>
+        
       
 
         <span style={{color: "red"}}  onClick={onSubmit}>< AddCircleIcon /></span>
@@ -126,6 +124,7 @@ export const AddBuyandSellItems = () => {
       </form>
 
       
+    </div>
     </div>
   )
 }

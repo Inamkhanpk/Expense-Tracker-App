@@ -1,8 +1,8 @@
 
 import React, { useContext } from 'react';
-
 import { GlobalContext } from '../contextAPI/GlobalState';
 import DeleteIcon from '@material-ui/icons/Delete';
+
 export const BuyAndSellItemList = () => {
   
   const { deleteBuyandSellItem, buyandsellitems} = useContext(GlobalContext);
@@ -10,36 +10,38 @@ export const BuyAndSellItemList = () => {
 
 
   return (
-    <div className="rounded text-center balance  mt-5 p-2 ">
+    <div className="d-flex flex-wrap justify-content-center">
+    <div className="rounded text-center mx-5 w-50 balance">
       <h3 className="text-dark"> History</h3>
 
 
       <ul className="list-group">
           {buyandsellitems.map(items => (
-            <div key={items.id} className="mt-1">
-            <li  className={items.amount< 0 ? 'list-group-item rounded   text-center minus ' :' list-group-item rounded  text-center plus'}>
+            <div key={items.id} className="">
+            <li  className={items.amount< 0 ? 'list-group-item rounded text-center minus' :' list-group-item rounded  text-center plus'}>
                 <div className="d-flex flex-wrap justify-content-between ">
 
-                  <div>
+                  <div >
                   {items.product} 
                   </div>
 
-                  <span >
+                  <div >
                   {items.amount} PKR
-                  </span>
+                  </div>
 
                 
 
-                 <span style={{color: "red"}}  
+                 <div style={{color: "red"}}  
                  onClick={() => deleteBuyandSellItem(items.id)}>
                  < DeleteIcon />
-                 </span>
+                 </div>
 
                   </div>
             </li>
             </div>
            ))}
       </ul>
+    </div>
     </div>
   )
 }
