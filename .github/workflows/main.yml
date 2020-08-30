@@ -7,12 +7,9 @@ name: CI
 on:
   push:
     branches: [ master ]
-<<<<<<< HEAD
-  
-=======
- 
->>>>>>> 99182bdc55f0c71247860f3142ce87cd373a079c
 
+
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -31,11 +28,7 @@ jobs:
       with:
         version:  12
 
-<<<<<<< HEAD
-    # Runs a set of commands using the runners shell
-=======
-    # Runs a set of commands using the runners shell- name: GitHub Action for Yarn
->>>>>>> 99182bdc55f0c71247860f3142ce87cd373a079c
+
     - name: GitHub Action for Yarn
       uses: Borales/actions-yarn@v2.1.0
       with:
@@ -49,8 +42,6 @@ jobs:
      
      
     - name: Deploying on surge 
-<<<<<<< HEAD
+
       run : surge ./build http://expnse-tracker-app-inam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
-=======
-      run : surge ./build http://covid-19-tracker-appinam.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
->>>>>>> 99182bdc55f0c71247860f3142ce87cd373a079c
+
